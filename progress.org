@@ -1,0 +1,8 @@
+#+PANDOC_VARIABLES: geometry:margin=1in
+* Progress Report
+** Which tasks have been completed?
+So far, I have only evaluated Lucene, and decided that I will most likely make use of it.
+** Which tasks are pending?
+The majority of the project. Lucene should take care of all of the search related tasks, but I still need to learn how to write webextensions, including native messaging to communicate with my background process, as well as create some UI to actually perform searching with.
+** Challenges
+It's been a few years since I've used Java, and in testing out Lucene, I discovered that I'm not that comfortable with it anymore. This shouldn't be too big of an issue, though. If I really can't get back into Java, there are other options available (particularly PyLucene). Additionally, it came to mind that firefox may be too keen on me mining every page the user visits, and I may be running against the security limits of webextensions. I still haven't gotten to actually looking at how extensions work yet, but it's something I have in mind for when I get there.
