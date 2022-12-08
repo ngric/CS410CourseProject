@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "hist-search",
+    "version": "1.0",
+
+    "description": "Full-text browsing history search",
+
+    "permissions": [
+	// "webRequest",
+	"http://localhost/*"
+    ],
+
+    "content_scripts": [
+	{
+	    "matches": ["<all_urls>"],
+	    "js": ["content-script.js"],
+	    "run_at": "document_end"
+	}
+    ]
+}
