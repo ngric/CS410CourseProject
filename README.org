@@ -1,0 +1,42 @@
+* CS410 Course Project - Full-text history search
+** Description
+Full-text search over browsing history.
+*** Extension
+Sends the body of all pages loaded by the user to search server for indexing.
+*** Server
+Indexes and stores browsing history. Has a (very) simple interface allowing the user to enter a query.
+
+** Install
+
+*** Firefox Extension
+For a temporary install, for testing purposes, use [[https://github.com/mozilla/web-ext][web-ext]]
+#+begin_src sh
+  cd extension
+  web-ext run
+#+end_src
+
+Alternatively, if you want to install it permanently, see [[https://extensionworkshop.com/documentation/develop/testing-persistent-and-restart-features/#what-do-i-do-to-ensure-i-can-test-my-extension][here]]
+
+*** Search Server
+Install [[https://github.com/quickwit-oss/tantivy-py][tantivy-py]] and [[https://www.rust-lang.org/tools/install][rust]]
+
+#+begin_src sh
+  cd server
+  python3 server.py
+#+end_src
+
+** Usage
+Once the extension is installed, it will automatically send pages to ~localhost:8000~ once they finish loading. As long as the server is running, no manual action is required of the user.
+To query the index, visit =http://localhost:8000/=, and use the form.
+
+If you visited the rust page linked above, it should be returned as a result for the query "Because of differences between platforms".
+
+** TODO
+- Proper UI
+- Integrate with omnibar search
+- Allow user to set server address in extension settings
+- Show hit context in results page
+
+** Issues
+- Can only retrieve 10 results
+- page entries duplicate in index instead of updating

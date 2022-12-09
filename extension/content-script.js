@@ -1,31 +1,16 @@
-console.log("this shit work?");
-console.log(text);
-
-let page = window.location.href;
-var text = document.body.innerText;
-
 // Creating a XHR object
-let xhr = new XMLHttpRequest();
-let url = "http://localhost:8000/test";
+let req = new XMLHttpRequest();
+let server = "http://localhost:8000/test";
 
 // open a connection
-xhr.open("POST", url, true);
+req.open("POST", server, true);
 
-// Set the request header i.e. which type of content you are sending
-// xhr.setRequestHeader("Content-Type", "application/json");
-
-// Create a state change callback
-// xhr.onreadystatechange = function () {
-//     if (xhr.readyState === 4 && xhr.status === 200) {
-
-// 	// Print received data from server
-// 	result.innerHTML = this.responseText;
-
-//     }
-// };
+let url = window.location.href;
+let title = document.title;
+let body = document.body.innerText;
 
 // Converting JSON data to string
-var data = JSON.stringify({ "url": page, "body": text });
+var data = JSON.stringify({ "url": url, "title": title, "body": body });
 
 // Sending data with the request
-xhr.send(data);
+req.send(data);
